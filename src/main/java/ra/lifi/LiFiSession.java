@@ -1,34 +1,27 @@
 package ra.lifi;
 
 
+import ra.common.Envelope;
+import ra.common.network.BaseClientSession;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
-public class LiFiSession extends BaseSession {
+public class LiFiSession extends BaseClientSession {
 
     private static final Logger LOG = Logger.getLogger(LiFiSession.class.getName());
 
     private List<LiFiSessionListener> sessionListeners = new ArrayList<>();
+    protected LiFiService service;
 
-    public LiFiSession(LiFi sensor) {
-        super(sensor);
+    public LiFiSession(LiFiService service) {
+       this.service = service;
     }
 
     @Override
-    public boolean send(NetworkRequestOp requestOp) {
-        return false;
-    }
-
-    @Override
-    public boolean notify(NetworkNotifyOp notifyOp) {
-        return false;
-    }
-
-    @Override
-    public Boolean send(NetworkPacket packet) {
-        LOG.warning("LiFISession.send(Packet) not implemented.");
-        return false;
+    public Boolean send(Envelope envelope) {
+        return null;
     }
 
     @Override

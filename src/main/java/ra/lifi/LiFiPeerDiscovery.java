@@ -1,11 +1,15 @@
 package ra.lifi;
 
+import ra.util.tasks.BaseTask;
 import ra.util.tasks.TaskRunner;
 
-public class LiFiPeerDiscovery extends NetworkTask {
+public class LiFiPeerDiscovery extends BaseTask {
 
-    public LiFiPeerDiscovery(TaskRunner taskRunner, LiFi sensor) {
-        super(LiFiPeerDiscovery.class.getName(), taskRunner, sensor);
+    private LiFiService service;
+
+    public LiFiPeerDiscovery(TaskRunner taskRunner, LiFiService service) {
+        super(LiFiPeerDiscovery.class.getName(), taskRunner);
+        this.service = service;
     }
 
     @Override
